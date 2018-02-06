@@ -4,6 +4,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{ded65b50-82d0-404f-a4eb-c96ae9e00caf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{5a1ef837-0319-4287-8629-63cebb7ae68c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\4arithmetic.cpp">
@@ -12,12 +15,18 @@
     <ClCompile Include="..\src\stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Fraction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\stdafx.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Fraction.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
