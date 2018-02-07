@@ -1,9 +1,0 @@
-﻿  stdafx.cpp
-  Fraction.cpp
-d:\users\administrator\documents\github\4arithmetic\src\fraction.cpp(33): warning C4100: 'str': unreferenced formal parameter
-  FractionTest.cpp
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
-  Generating code
-  All 178 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  4arithmeticTest.vcxproj -> D:\Users\Administrator\Documents\Github\4arithmetic\intdir\4arithmeticTest\Release\Win32\4arithmeticTest.dll

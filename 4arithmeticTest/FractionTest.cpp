@@ -8,8 +8,8 @@ int main(int argc, char **argv) {
 
 TEST(FractionTest, CreationTest) {
   Fraction f1(8, 2), f2(-9, 3), f3(4, -5);
-  ASSERT_EQ(f1.ToString(), "4|1");
-  ASSERT_EQ(f2.ToString(), "-3|1");
+  ASSERT_EQ(f1.ToString(), "4");
+  ASSERT_EQ(f2.ToString(), "-3");
   ASSERT_EQ(f3.ToString(), "4|-5");
   try {
     Fraction f4(2, 0);
