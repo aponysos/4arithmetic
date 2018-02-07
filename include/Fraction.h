@@ -1,0 +1,25 @@
+#pragma once
+
+class Fraction
+{
+public:
+  Fraction(int n = 0, int d = 1);
+  Fraction(const Fraction & fr);
+  Fraction & operator=(const Fraction & fr);
+
+public:
+  std::string ToString() const;
+  Fraction & FromString(const std::string & str);
+
+public:
+
+private:
+  void Reduce();
+  static int GCD(int x, int y);
+
+private:
+  int nmr_; // numerator
+  int dnm_; // denominator
+};
+
+std::ostream & operator<<(std::ostream & os, const Fraction & fr);

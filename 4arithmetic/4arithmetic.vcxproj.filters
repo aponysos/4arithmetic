@@ -21,23 +21,22 @@
     <ClCompile Include="..\src\FourArithmeticProblem.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Util.cpp" />
+    <ClCompile Include="..\src\Util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\stdafx.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\targetver.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\include\FourArithmeticProblem.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Fraction.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\include\Fraction.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\FourArithmeticProblem.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Util.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\include\Util.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

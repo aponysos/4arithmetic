@@ -30,6 +30,11 @@ std::string Fraction::ToString() const
   return oss.str();
 }
 
+Fraction & Fraction::FromString(const std::string & str)
+{
+  return *this;
+}
+
 void Fraction::Reduce()
 {
   if (dnm_ == 0)

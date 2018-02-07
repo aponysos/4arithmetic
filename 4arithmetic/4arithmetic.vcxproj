@@ -31,11 +31,10 @@
     <ClCompile Include="..\src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\FourArithmeticProblem.h" />
-    <ClInclude Include="..\src\Fraction.h" />
+    <ClInclude Include="..\include\FourArithmeticProblem.h" />
+    <ClInclude Include="..\include\Fraction.h" />
+    <ClInclude Include="..\include\Util.h" />
     <ClInclude Include="..\src\stdafx.h" />
-    <ClInclude Include="..\src\targetver.h" />
-    <ClInclude Include="..\src\Util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -91,23 +90,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)outdir\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)intdir\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)outdir\$(ProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)intdir\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)outdir\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)intdir\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)outdir\$(ProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)intdir\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)outdir\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)intdir\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)outdir\$(ProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)intdir\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)outdir\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)intdir\$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)outdir\$(ProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)intdir\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
