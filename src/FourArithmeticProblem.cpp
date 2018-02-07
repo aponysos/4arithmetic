@@ -14,15 +14,10 @@ FourArithmeticProblem::~FourArithmeticProblem()
 
 bool FourArithmeticProblem::Resolve()
 {
-  return false;
-}
-
-bool compute(int result, const std::vector<int> & operands)
-{
   TRACE_FUNC();
 
-  INFO_LOG() << "result: " << result;
-  INFO_LOG() << "operands: " << operands;
+  INFO_LOG() << "target: " << tgt_;
+  INFO_LOG() << "operands: " << ops_;
 
   Fraction f1(8, 2), f2(-9, 3), f3(4, -5);
   INFO_LOG() << f1;

@@ -5,7 +5,6 @@ class Fraction
 public:
   Fraction(int n = 0, int d = 1);
   Fraction(const Fraction & fr);
-
   Fraction & operator=(const Fraction & fr);
 
   std::string ToString() const;
@@ -22,5 +21,3 @@ private:
 };
 
 std::ostream & operator<<(std::ostream & os, const Fraction & fr);
-
-bool compute(int result, const std::vector<int> & operands);
