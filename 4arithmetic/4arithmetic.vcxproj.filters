@@ -18,6 +18,10 @@
     <ClCompile Include="..\src\Fraction.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\FourArithmeticProblem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\stdafx.h">
@@ -27,6 +31,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Fraction.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FourArithmeticProblem.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Util.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

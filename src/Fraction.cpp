@@ -65,19 +65,3 @@ std::ostream & operator<<(std::ostream & os, const Fraction & fr)
   os << fr.ToString();
   return os;
 }
-
-bool compute(int result, const std::vector<int> & operands)
-{
-  TRACE_FUNC();
-
-  INFO_LOG() << "result: " << result;
-  INFO_LOG() << "operands: " << operands;
-
-  Fraction f1(8, 2), f2(-9, 3), f3(4, -5);
-  INFO_LOG() << f1;
-  INFO_LOG() << f2;
-  INFO_LOG() << f3;
-  Fraction f4(2, 0);
-
-  return false;
-}
