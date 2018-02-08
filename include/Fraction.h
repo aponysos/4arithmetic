@@ -8,6 +8,10 @@ public:
   Fraction & operator=(const Fraction & fr);
 
 public:
+  int GetNumerator() const { return nmr_; }
+  int GetDenomitor() const { return dnm_; }
+
+public:
   std::string ToString() const;
   Fraction & FromString(const std::string & str);
 
