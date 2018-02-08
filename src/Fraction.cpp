@@ -30,7 +30,7 @@ std::string Fraction::ToString() const
   return oss.str();
 }
 
-Fraction & Fraction::FromString(const std::string & str)
+Fraction & Fraction::FromString(const std::string & /*str*/)
 {
   return *this;
 }
@@ -54,15 +54,40 @@ void Fraction::Reduce()
 
 int Fraction::GCD(int x, int y)
 {
+  if (x == 0 || y == 0)
+    return 0;
+
   x = abs(x);
   y = abs(y);
 
+  return GCD_i(x, y);
+}
+
+int Fraction::GCD_i(int x, int y)
+{
   if (y == 0)
     return x;
   else if (x < y)
-    return GCD(y, x);
+    return GCD_i(y, x);
   else
-    return GCD(y, x%y);
+    return GCD_i(y, x%y);
+}
+
+int Fraction::LCM(int x, int y)
+{
+  if (x == 0 || y == 0)
+    return 0;
+
+  x = abs(x);
+  y = abs(y);
+
+  return LCM_i(x, y);
+}
+
+int Fraction::LCM_i(int x, int y)
+{
+  int gcd = GCD_i(x, y);
+  return x * y / gcd;
 }
 
 std::ostream & operator<<(std::ostream & os, const Fraction & fr)

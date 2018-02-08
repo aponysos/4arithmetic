@@ -12,10 +12,13 @@ public:
   Fraction & FromString(const std::string & str);
 
 public:
+  static int GCD(int x, int y);
+  static int LCM(int x, int y);
 
 private:
   void Reduce();
-  static int GCD(int x, int y);
+  static int GCD_i(int x, int y);
+  static int LCM_i(int x, int y);
 
 private:
   int nmr_; // numerator
