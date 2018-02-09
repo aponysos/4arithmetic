@@ -8,7 +8,7 @@
 #include "targetver.h"
 
 // TODO: reference additional headers your program requires here
-
+#include "log4cpp\log4cpp.h"
 
 #pragma warning(push)
 // 'std::tr1': warning STL4002: 

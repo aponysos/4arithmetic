@@ -6,6 +6,7 @@ public:
   Fraction(int n = 0, int d = 1);
   Fraction(const Fraction & fr);
   Fraction & operator=(const Fraction & fr);
+  Fraction(const std::string & str);
 
 public:
   int GetNumerator() const { return nmr_; }

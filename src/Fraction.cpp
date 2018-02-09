@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Util.h"
 #include "Fraction.h"
 
 Fraction::Fraction(int i, int d)
@@ -19,6 +20,12 @@ Fraction & Fraction::operator=(const Fraction & fr)
   return *this;
 }
 
+Fraction::Fraction(const std::string & str)
+  : Fraction(0, 1)
+{
+  FromString(str);
+}
+
 std::string Fraction::ToString() const
 {
   std::ostringstream oss;
@@ -30,8 +37,20 @@ std::string Fraction::ToString() const
   return oss.str();
 }
 
-Fraction & Fraction::FromString(const std::string & /*str*/)
+Fraction & Fraction::FromString(const std::string & str)
 {
+  auto iBar = str.find_first_of('|');
+  if (std::string::npos == iBar) {
+    // integer
+    nmr_ = str2int(str);
+    dnm_ = 1;
+  }
+  else {
+    // fraction
+    nmr_ = str2int(str.substr(0, iBar));
+    dnm_ = str2int(str.substr(iBar + 1));
+    Reduce();
+  }
   return *this;
 }
 

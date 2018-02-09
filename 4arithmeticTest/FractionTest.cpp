@@ -50,6 +50,10 @@ TEST(FractionTest, ToStringTest) {
 }
 
 TEST(FractionTest, FromStringTest) {
-  Fraction f5;
-  f5.FromString("10|5");
+  Fraction f0("10|5");
+  ASSERT_EQ(f0.GetNumerator(), 2);
+  ASSERT_EQ(f0.GetDenomitor(), 1);
+  Fraction f1("10|-5");
+  ASSERT_EQ(f1.GetNumerator(), -2);
+  ASSERT_EQ(f1.GetDenomitor(), 1);
 }
