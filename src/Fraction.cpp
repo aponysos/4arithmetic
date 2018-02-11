@@ -13,17 +13,17 @@ Fraction::Fraction(const Fraction & fr)
 {
 }
 
+Fraction::Fraction(const std::string & str)
+  : Fraction(0, 1)
+{
+  FromString(str);
+}
+
 Fraction & Fraction::operator=(const Fraction & fr)
 {
   nmr_ = fr.nmr_;
   dnm_ = fr.dnm_;
   return *this;
-}
-
-Fraction::Fraction(const std::string & str)
-  : Fraction(0, 1)
-{
-  FromString(str);
 }
 
 std::string Fraction::ToString() const
@@ -54,21 +54,37 @@ Fraction & Fraction::FromString(const std::string & str)
   return *this;
 }
 
-void Fraction::Reduce()
+Fraction Fraction::AdditiveInverse() const
 {
-  if (dnm_ == 0)
-    throw std::exception("divided by 0");
+  return Fraction(-nmr_, dnm_);
+}
 
-  if (dnm_ < 0) {
-    nmr_ = -nmr_;
-    dnm_ = -dnm_;
-  }
+Fraction Fraction::MultiplicativeInverse() const
+{
+  if (nmr_ == 0)
+    throw std::exception("numerator is 0");
+  
+  return Fraction(dnm_, nmr_);
+}
 
-  int gcd = GCD(nmr_, dnm_);
-  if (gcd > 1) {
-    nmr_ /= gcd;
-    dnm_ /= gcd;
-  }
+Fraction & Fraction::Plus(const Fraction & fr)
+{
+  nmr_ = nmr_ * fr.dnm_ + dnm_ * fr.nmr_;
+  dnm_ *= fr.dnm_;
+
+  Reduce();
+
+  return *this;
+}
+
+Fraction & Fraction::Multiply(const Fraction & fr)
+{
+  nmr_ *= fr.nmr_;
+  dnm_ *= fr.dnm_;
+
+  Reduce();
+
+  return *this;
 }
 
 int Fraction::GCD(int x, int y)
@@ -107,6 +123,53 @@ int Fraction::LCM_i(int x, int y)
 {
   int gcd = GCD_i(x, y);
   return x * y / gcd;
+}
+
+void Fraction::Reduce()
+{
+  if (dnm_ == 0)
+    throw std::exception("denomitor is 0");
+
+  if (dnm_ < 0) {
+    nmr_ = -nmr_;
+    dnm_ = -dnm_;
+  }
+
+  int gcd = GCD(nmr_, dnm_);
+  if (gcd > 1) {
+    nmr_ /= gcd;
+    dnm_ /= gcd;
+  }
+}
+
+bool operator==(const Fraction & lhs, const Fraction & rhs)
+{
+  return lhs.nmr_ == rhs.nmr_ && lhs.dnm_ == rhs.dnm_;
+}
+
+bool operator!=(const Fraction & lhs, const Fraction & rhs)
+{
+  return !(lhs == rhs);
+}
+
+Fraction operator+(const Fraction & lhs, const Fraction & rhs)
+{
+  Fraction tmp(lhs); return tmp += rhs;
+}
+
+Fraction operator-(const Fraction & lhs, const Fraction & rhs)
+{
+  Fraction tmp(lhs); return tmp -= rhs;
+}
+
+Fraction operator*(const Fraction & lhs, const Fraction & rhs)
+{
+  Fraction tmp(lhs); return tmp *= rhs;
+}
+
+Fraction operator/(const Fraction & lhs, const Fraction & rhs)
+{
+  Fraction tmp(lhs); return tmp /= rhs;
 }
 
 std::ostream & operator<<(std::ostream & os, const Fraction & fr)

@@ -9,13 +9,13 @@ int main(int argc, char **argv) {
 TEST(FractionTest, CreationTest) {
   Fraction f0, f1(6, 2), f2(-10, 4), f3(4, -6);
   ASSERT_EQ(f0.GetNumerator(), 0);
-  ASSERT_EQ(f0.GetDenomitor(), 1);
+  ASSERT_EQ(f0.GetDenominator(), 1);
   ASSERT_EQ(f1.GetNumerator(), 3);
-  ASSERT_EQ(f1.GetDenomitor(), 1);
+  ASSERT_EQ(f1.GetDenominator(), 1);
   ASSERT_EQ(f2.GetNumerator(), -5);
-  ASSERT_EQ(f2.GetDenomitor(), 2);
+  ASSERT_EQ(f2.GetDenominator(), 2);
   ASSERT_EQ(f3.GetNumerator(), -2);
-  ASSERT_EQ(f3.GetDenomitor(), 3);
+  ASSERT_EQ(f3.GetDenominator(), 3);
 }
 
 TEST(FractionTest, GCD_LCM_Test) {
@@ -52,8 +52,16 @@ TEST(FractionTest, ToStringTest) {
 TEST(FractionTest, FromStringTest) {
   Fraction f0("10|5");
   ASSERT_EQ(f0.GetNumerator(), 2);
-  ASSERT_EQ(f0.GetDenomitor(), 1);
+  ASSERT_EQ(f0.GetDenominator(), 1);
   Fraction f1("10|-5");
   ASSERT_EQ(f1.GetNumerator(), -2);
-  ASSERT_EQ(f1.GetDenomitor(), 1);
+  ASSERT_EQ(f1.GetDenominator(), 1);
+}
+
+TEST(FractionTest, OperatorTest) {
+  ASSERT_EQ(Fraction("1|2"), Fraction(2, 4));
+  ASSERT_EQ(Fraction("1|2") + Fraction(1, 4), Fraction("6|8"));
+  ASSERT_EQ(Fraction("1|2") - Fraction(1, 4), Fraction(2, 8));
+  ASSERT_EQ(Fraction("3|4") * Fraction(2, 5), Fraction(3, 10));
+  ASSERT_EQ(Fraction(7, 12) / Fraction(8, 6), Fraction(7, 16));
 }
