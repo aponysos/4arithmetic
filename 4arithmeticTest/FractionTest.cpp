@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Fraction.h"
+#include "Expression.h"
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
@@ -64,4 +65,12 @@ TEST(FractionTest, OperatorTest) {
   ASSERT_EQ(Fraction("1|2") - Fraction(1, 4), Fraction(2, 8));
   ASSERT_EQ(Fraction("3|4") * Fraction(2, 5), Fraction(3, 10));
   ASSERT_EQ(Fraction(7, 12) / Fraction(8, 6), Fraction(7, 16));
+}
+
+TEST(ExpressionTest, EvaluateTest) {
+  auto e1 = new PlusExpression(
+    new ValueExpression(Fraction("1|5")), new ValueExpression(Fraction("1|4"))
+  );
+  ASSERT_EQ(e1->Evaluate(), Fraction("9|20"));
+  delete e1;
 }

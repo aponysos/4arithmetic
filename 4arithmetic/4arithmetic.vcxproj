@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\4arithmetic.cpp" />
+    <ClCompile Include="..\src\Expression.cpp" />
     <ClCompile Include="..\src\FourArithmeticProblem.cpp" />
     <ClCompile Include="..\src\Fraction.cpp" />
     <ClCompile Include="..\src\stdafx.cpp">
@@ -31,6 +32,7 @@
     <ClCompile Include="..\src\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Expression.h" />
     <ClInclude Include="..\include\FourArithmeticProblem.h" />
     <ClInclude Include="..\include\Fraction.h" />
     <ClInclude Include="..\include\Util.h" />

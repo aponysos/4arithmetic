@@ -17,3 +17,6 @@
 #pragma warning(disable:4996)
 #include "gtest\gtest.h"
 #pragma warning(pop)
+
+#include <functional>
+#include <memory>

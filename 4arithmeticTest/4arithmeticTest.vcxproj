@@ -164,12 +164,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Expression.h" />
     <ClInclude Include="..\include\Fraction.h" />
     <ClInclude Include="..\include\Util.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Expression.cpp" />
     <ClCompile Include="..\src\Fraction.cpp" />
     <ClCompile Include="..\src\Util.cpp" />
     <ClCompile Include="stdafx.cpp">

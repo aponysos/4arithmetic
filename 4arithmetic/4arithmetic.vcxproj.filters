@@ -24,6 +24,9 @@
     <ClCompile Include="..\src\Util.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Expression.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\stdafx.h">
@@ -37,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="..\include\Util.h">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Expression.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
