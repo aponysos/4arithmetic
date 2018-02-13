@@ -68,9 +68,21 @@ TEST(FractionTest, OperatorTest) {
 }
 
 TEST(ExpressionTest, EvaluateTest) {
-  auto e1 = new PlusExpression(
+  std::unique_ptr<Expression> e(nullptr);
+  e.reset(new PlusExpression(
     new ValueExpression(Fraction("1|5")), new ValueExpression(Fraction("1|4"))
-  );
-  ASSERT_EQ(e1->Evaluate(), Fraction("9|20"));
-  delete e1;
+  ));
+  ASSERT_EQ(e->Evaluate(), Fraction("9|20"));
+  e.reset(new MinusExpression(
+    new ValueExpression(Fraction("1|5")), new ValueExpression(Fraction("1|4"))
+  ));
+  ASSERT_EQ(e->Evaluate(), Fraction("-1|20"));
+  e.reset(new MultipliesExpression(
+    new ValueExpression(Fraction("3|5")), new ValueExpression(Fraction("1|9"))
+  ));
+  ASSERT_EQ(e->Evaluate(), Fraction("1|15"));
+  e.reset(new DividesExpression(
+    new ValueExpression(Fraction("3|7")), new ValueExpression(Fraction("3|5"))
+  ));
+  ASSERT_EQ(e->Evaluate(), Fraction("5|7"));
 }
