@@ -3,64 +3,108 @@
 class Expression
 {
 public:
-  Expression(Expression * lhs, Expression * rhs, Fraction val)
-    : lhs_(lhs), rhs_(rhs), val_(val) {}
   virtual ~Expression() {}
   virtual Fraction Evaluate() = 0;
-
-protected:
-  Expression * lhs_;
-  Expression * rhs_;
-  Fraction val_;
+  virtual Expression * Clone() const = 0;
 };
 
 class ValueExpression : public Expression
 {
 public:
-  ValueExpression(Fraction val) : Expression(nullptr, nullptr, val) {}
+  ValueExpression(Fraction val) : val_(val) {}
   ~ValueExpression() {}
   Fraction Evaluate() { return val_; }
+  Expression * Clone() const { return new ValueExpression(val_); }
+
+protected:
+  Fraction val_;
 };
 
-template<class T>
 class ArithmeticExpression : public Expression
 {
 public:
   ArithmeticExpression(Expression * lhs, Expression * rhs)
-    : Expression(lhs, rhs, 0) {}
-  ~ArithmeticExpression();
-  Fraction Evaluate();
+    : lhs_(lhs), rhs_(rhs) {}
+  ArithmeticExpression(const ArithmeticExpression & ae);
+  virtual ~ArithmeticExpression();
+  virtual Fraction Evaluate();
 
-private:
-  T func_;
+protected:
+  virtual Fraction DoEvaluate(Fraction lVal, Fraction rVal) = 0;
+
+protected:
+  Expression * lhs_;
+  Expression * rhs_;
 };
 
-template<class T>
-ArithmeticExpression<T>::~ArithmeticExpression()
+class PlusExpression : public ArithmeticExpression
 {
-  if (lhs_ != nullptr) {
-    delete lhs_;
-    lhs_ = nullptr;
-  }
-  if (rhs_ != nullptr) {
-    delete rhs_;
-    rhs_ = nullptr;
-  }
+public:
+  PlusExpression(Expression * lhs, Expression * rhs)
+    : ArithmeticExpression(lhs, rhs) {}
+  virtual Expression * Clone() const { return new PlusExpression(lhs_->Clone(), rhs_->Clone()); }
+
+protected:
+  virtual Fraction DoEvaluate(Fraction lVal, Fraction rVal) { return lVal + rVal; }
+};
+
+class MinusExpression : public ArithmeticExpression
+{
+public:
+  MinusExpression(Expression * lhs, Expression * rhs)
+    : ArithmeticExpression(lhs, rhs) {}
+  virtual Expression * Clone() const { return new MinusExpression(lhs_->Clone(), rhs_->Clone()); }
+
+protected:
+  virtual Fraction DoEvaluate(Fraction lVal, Fraction rVal) { return lVal - rVal; }
+};
+
+class MultipliesExpression : public ArithmeticExpression
+{
+public:
+  MultipliesExpression(Expression * lhs, Expression * rhs)
+    : ArithmeticExpression(lhs, rhs) {}
+  virtual Expression * Clone() const { return new MultipliesExpression(lhs_->Clone(), rhs_->Clone()); }
+
+protected:
+  virtual Fraction DoEvaluate(Fraction lVal, Fraction rVal) { return lVal * rVal; }
+};
+
+class DividesExpression : public ArithmeticExpression
+{
+public:
+  DividesExpression(Expression * lhs, Expression * rhs)
+    : ArithmeticExpression(lhs, rhs) {}
+  virtual Expression * Clone() const { return new DividesExpression(lhs_->Clone(), rhs_->Clone()); }
+
+protected:
+  virtual Fraction DoEvaluate(Fraction lVal, Fraction rVal) { return lVal / rVal; }
+};
+
+template<class T1, class T2>
+inline Expression * MakePlusExpression(T1 lhs, T2 rhs)
+{
+  return new PlusExpression(
+    new ValueExpression(Fraction(lhs)), new ValueExpression(Fraction(rhs)));
 }
 
-template<class T>
-Fraction ArithmeticExpression<T>::Evaluate()
+template<class T1, class T2>
+inline Expression * MakeMinusExpression(T1 lhs, T2 rhs)
 {
-  if (lhs_ == nullptr || rhs_ == nullptr)
-    throw std::exception("invalid expression");
-
-  Fraction lVal = lhs_->Evaluate();
-  Fraction rVal = rhs_->Evaluate();
-
-  return val_ = func_(lVal, rVal);
+  return new MinusExpression(
+    new ValueExpression(Fraction(lhs)), new ValueExpression(Fraction(rhs)));
 }
 
-typedef ArithmeticExpression<std::plus<Fraction>> PlusExpression;
-typedef ArithmeticExpression<std::minus<Fraction>> MinusExpression;
-typedef ArithmeticExpression<std::multiplies<Fraction>> MultipliesExpression;
-typedef ArithmeticExpression<std::divides<Fraction>> DividesExpression;
+template<class T1, class T2>
+inline Expression * MakeMultipliesExpression(T1 lhs, T2 rhs)
+{
+  return new MultipliesExpression(
+    new ValueExpression(Fraction(lhs)), new ValueExpression(Fraction(rhs)));
+}
+
+template<class T1, class T2>
+inline Expression * MakeDividesExpression(T1 lhs, T2 rhs)
+{
+  return new DividesExpression(
+    new ValueExpression(Fraction(lhs)), new ValueExpression(Fraction(rhs)));
+}

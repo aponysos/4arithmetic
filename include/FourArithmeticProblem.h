@@ -12,9 +12,5 @@ public:
 private:
   Fraction tgt_;
   std::vector<Fraction> ops_;
-};
-
-class Expression
-{
-
+  Expression * exp_;
 };
