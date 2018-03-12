@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Fraction.h"
 #include "Expression.h"
+#include "FourArithmeticProblem.h"
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
@@ -77,4 +78,15 @@ TEST(ExpressionTest, EvaluateTest) {
   ASSERT_EQ(e->Evaluate(), Fraction("1|15"));
   e.reset(MakeDividesExpression("3|5", "9"));
   ASSERT_EQ(e->Evaluate(), Fraction("1|15"));
+}
+
+TEST(FourArithmeticProblemTest, ResolveTest) {
+  Fraction tgt;
+  std::vector<Fraction> ops;
+
+  tgt = 15;
+  ops.push_back(Fraction(3));
+  ops.push_back(Fraction(5));
+  FourArithmeticProblem p(tgt, ops);
+  ASSERT_EQ(p.Resolve(), true);
 }
