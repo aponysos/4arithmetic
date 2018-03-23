@@ -11,6 +11,6 @@ public:
 
 private:
   Fraction tgt_;
-  std::vector<Fraction> ops_;
+  const std::vector<Fraction> ops_;
   Expression * exp_;
 };

@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "Combination.h"
 
-void Combination::Reset()
+std::vector<bool> Combination::Reset()
 {
   flags_.clear();
   flags_.resize(n_);
   std::generate_n(flags_.begin(), m_, [] { return true; });
+  return flags_;
 }
 
 bool Combination::Next()
@@ -16,13 +17,5 @@ bool Combination::Next()
     return false;
   std::swap(*i, *(i + 1));
   std::partition(flags_.begin(), i, [](const bool &a) { return a; });
-  return true;
-}
-
-bool Combination::IsDone()
-{
-  for (auto i = flags_.begin(), j = i + 1; j < flags_.end(); ++i, ++j)
-    if (*i && !*j)
-      return false;
   return true;
 }

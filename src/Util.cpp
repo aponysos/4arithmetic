@@ -5,7 +5,7 @@ void InitLog()
 {
   const char * PATTERN_STRING = "%d [%5p](%5t) %m%n";
   const char * LOG_FILE = "4arithmatic.log";
-  const int LOG_PRIORITY = log4cpp::Priority::DEBUG;
+  const int LOG_PRIORITY = log4cpp::Priority::INFO;
 
   log4cpp::PatternLayout * layout = new log4cpp::PatternLayout();
   layout->setConversionPattern(PATTERN_STRING);

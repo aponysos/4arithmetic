@@ -27,6 +27,9 @@
     <ClCompile Include="..\src\Expression.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Combination.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\stdafx.h">
@@ -43,6 +46,10 @@
     </ClInclude>
     <ClInclude Include="..\include\Expression.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\targetver.h" />
+    <ClInclude Include="..\include\Combination.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

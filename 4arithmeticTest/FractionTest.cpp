@@ -85,12 +85,11 @@ TEST(FourArithmeticProblemTest, CombinationTest) {
   Combination c(4, 2);
   c.Reset();
   do {
-    std::vector<bool> f = c.Current();
+    auto f = c.Current();
     for (bool b : f)
       std::cout << std::boolalpha << b << " ";
     std::cout << '\n';
-  }
-  while (c.Next());
+  } while (c.Next());
 }
 
 TEST(FourArithmeticProblemTest, ResolveTest) {
