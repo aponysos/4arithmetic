@@ -18,3 +18,11 @@ bool Combination::Next()
   std::partition(flags_.begin(), i, [](const bool &a) { return a; });
   return true;
 }
+
+bool Combination::IsDone()
+{
+  for (auto i = flags_.begin(), j = i + 1; j < flags_.end(); ++i, ++j)
+    if (*i && !*j)
+      return false;
+  return true;
+}
