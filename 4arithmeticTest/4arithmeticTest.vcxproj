@@ -164,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\Combination.h" />
     <ClInclude Include="..\include\Expression.h" />
     <ClInclude Include="..\include\FourArithmeticProblem.h" />
     <ClInclude Include="..\include\Fraction.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Combination.cpp" />
     <ClCompile Include="..\src\Expression.cpp" />
     <ClCompile Include="..\src\FourArithmeticProblem.cpp" />
     <ClCompile Include="..\src\Fraction.cpp" />

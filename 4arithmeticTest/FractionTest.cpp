@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Fraction.h"
 #include "Expression.h"
+#include "Combination.h"
 #include "FourArithmeticProblem.h"
 
 int main(int argc, char **argv) {
@@ -78,6 +79,18 @@ TEST(ExpressionTest, EvaluateTest) {
   ASSERT_EQ(e->Evaluate(), Fraction("1|15"));
   e.reset(MakeDividesExpression("3|5", "9"));
   ASSERT_EQ(e->Evaluate(), Fraction("1|15"));
+}
+
+TEST(FourArithmeticProblemTest, CombinationTest) {
+  Combination c(4, 2);
+  c.Reset();
+  do {
+    std::vector<bool> f = c.Current();
+    for (bool b : f)
+      std::cout << std::boolalpha << b << " ";
+    std::cout << '\n';
+  }
+  while (c.Next());
 }
 
 TEST(FourArithmeticProblemTest, ResolveTest) {
