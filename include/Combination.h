@@ -9,7 +9,6 @@ public:
   void Reset();
   std::vector<bool> Current() { return flags_; }
   bool Next();
-  bool IsDone();
 
 private:
   int n_;
