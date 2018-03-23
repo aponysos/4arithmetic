@@ -24,6 +24,16 @@ enum ExpressionType
   None, 
 };
 
+const ExpressionType EXP_TYPES[] = {
+  Plus,
+  Minus,
+  Multiplies,
+  Divides,
+  RMinus,
+  RDivides,
+  None,
+};
+
 template<class T1, class T2>
 inline Expression * MakeExpression(ExpressionType tp, T1 lhs, T2 rhs)
 {
@@ -55,15 +65,21 @@ bool FourArithmeticProblem::Resolve()
   delete exp_;
   exp_ = nullptr;
 
-  if (ops_.size() == 2) {
-    for (int t = Plus; t < None; ++t) {
-      Expression * e = MakeExpression(static_cast<ExpressionType>(t), ops_[0], ops_[1]);
+  if (ops_.size() < 2) {
+    throw std::exception("");
+  }
+  else if (ops_.size() == 2) {
+    for (int t = 0; t < None; ++t) {
+      Expression * e = MakeExpression(EXP_TYPES[t], ops_[0], ops_[1]);
       Fraction res = e->Evaluate();
       if (res == tgt_) {
         exp_ = e;
         return true;
       }
     }
+  }
+  else {
+    
   }
 
   return false;
