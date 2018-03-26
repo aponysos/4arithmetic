@@ -112,7 +112,7 @@ bool FourArithmeticProblem::Resolve()
       for (size_t t = 0; t < None; ++t) {
         std::vector<Fraction> newOps{ remainedOps };
         try {
-          INFO_LOG() << EXP_STRING[t] << selectedOps[0] << " " << selectedOps[1];
+          DEBUG_LOG() << EXP_STRING[t] << selectedOps[0] << " " << selectedOps[1];
           Fraction res = RunFractionArithmetic(selectedOps[0], selectedOps[1], aops[t]);
           newOps.push_back(res);
         }
@@ -131,6 +131,6 @@ bool FourArithmeticProblem::Resolve()
      } while (c.Next());
   }
 
-  INFO_LOG() << "unresolvable: " << tgt_ << " <- (" << ops_ << ")";
+  DEBUG_LOG() << "unresolvable: " << tgt_ << " <- (" << ops_ << ")";
   return false;
 }
