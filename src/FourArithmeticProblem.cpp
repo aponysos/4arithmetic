@@ -88,6 +88,7 @@ bool FourArithmeticProblem::Resolve()
         Fraction res = RunFractionArithmetic(ops_[0], ops_[1], aops[t]);
         if (res == tgt_) {
           //exp_ = e;
+          INFO_LOG() << "resolvable: " << tgt_ << " <- (" << ops_ << ")";
           return true;
         }
       }
