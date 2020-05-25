@@ -22,9 +22,13 @@
 /* #undef LOG4CPP_HAVE_GETTIMEOFDAY */
 
 /* define if the compiler has int64_t */
+#define LOG4CPP_HAVE_INT64_T // error: 'long long long' is too long for GCC
+
 #ifndef LOG4CPP_HAVE_INT64_T
 #define LOG4CPP_HAVE_INT64_T
 #define int64_t __int64
+#endif
+
 
 /* define if the compiler has in_addr_t */
 #ifndef LOG4CPP_HAVE_IN_ADDR_T
@@ -39,8 +43,6 @@ typedef u_long in_addr_t;
 
 /* u_short is the type of sockaddr_in.sin_port */
 // typedef u_short              in_port_t;
-
-#endif
 
 #endif
 

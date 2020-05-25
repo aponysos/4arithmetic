@@ -1,5 +1,13 @@
 {
-    "C_Cpp.default.includePath": [
-        "${workspaceFolder}\\include",
-    ]
+    "cmake.mingwSearchDirs": [
+        "C:\\mingw64"
+    ],
+    "cmake.cmakePath": "C:\\CMake\\bin\\cmake.exe",
+    "cmake.configureOnOpen": true,
+    "cmake.debugConfig": {
+        "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",    
+        "externalConsole": true,  
+        "stopAtEntry": false,
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 }
