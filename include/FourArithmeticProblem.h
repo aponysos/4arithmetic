@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FOUR_ARITHMETIC_PROBLEM_H_INC
+#define FOUR_ARITHMETIC_PROBLEM_H_INC
 
 class FourArithmeticProblem
 {
@@ -14,3 +15,5 @@ private:
   const std::vector<Fraction> ops_;
   Expression * exp_;
 };
+
+#endif

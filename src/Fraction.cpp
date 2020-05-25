@@ -62,7 +62,7 @@ Fraction Fraction::AdditiveInverse() const
 Fraction Fraction::MultiplicativeInverse() const
 {
   if (nmr_ == 0)
-    throw std::exception("numerator is 0");
+    throw std::invalid_argument("numerator is 0");
   
   return Fraction(dnm_, nmr_);
 }
@@ -128,7 +128,7 @@ int Fraction::LCM_i(int x, int y)
 void Fraction::Reduce()
 {
   if (dnm_ == 0)
-    throw std::exception("denomitor is 0");
+    throw std::invalid_argument("denomitor is 0");
 
   if (dnm_ < 0) {
     nmr_ = -nmr_;

@@ -8,15 +8,19 @@
 			"type": "shell",
             "command": "g++.exe",
             "args": [
-				"${fileDirname}/${fileName}",
-				"${workspaceFolder}/lib/Debug/x64/liblog4cppD.a",
-				"-o",
-				"${workspaceFolder}/out/main.exe",
-				"-I ${workspaceFolder}/include",
+				"${workspaceFolder}/4arithmeticTest/FractionTest.cpp",
+				"${workspaceFolder}/lib/Debug/Win32/liblog4cppD.a",
+				"${workspaceFolder}/lib/Debug/Win32/gtest-md.lib",
+				"${workspaceFolder}/build/lib4arithmaticD.a",
+				"-o ${workspaceFolder}/main.exe",
+				"-I${workspaceFolder}/include",
 				"-g",
 				"-Wall",
 				"-std=c++17",
 			],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "problemMatcher": ["$gcc"],
             "group": {
                 "kind": "build",

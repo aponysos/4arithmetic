@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UTIL_H_INC
+#define UTIL_H_INC
 
 namespace log4cpp
 {
@@ -16,3 +17,5 @@ std::ostream & operator<<(std::ostream & os, const std::vector<T> & vi)
 int str2int(const std::string & str);
 
 void InitLog();
+
+#endif

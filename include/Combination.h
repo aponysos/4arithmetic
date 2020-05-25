@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMBINATION_H_INC
+#define COMBINATION_H_INC
 
 class Combination
 {
@@ -15,3 +16,5 @@ private:
   int m_;
   std::vector<bool> flags_;
 };
+
+#endif

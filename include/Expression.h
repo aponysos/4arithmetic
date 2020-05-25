@@ -1,4 +1,5 @@
-#pragma once
+#ifndef EXPRESSION_H_INC
+#define EXPRESSION_H_INC
 
 class Expression
 {
@@ -108,3 +109,5 @@ inline Expression * MakeDividesExpression(T1 lhs, T2 rhs)
   return new DividesExpression(
     new ValueExpression(Fraction(lhs)), new ValueExpression(Fraction(rhs)));
 }
+
+#endif

@@ -54,7 +54,7 @@ inline Expression * MakeExpression(ExpressionType tp, T1 lhs, T2 rhs)
   case RDivides:
     return MakeDividesExpression(rhs, lhs);
   default:
-    throw std::exception("unknown ExpressionType");
+    throw std::invalid_argument("unknown ExpressionType");
   }
 }
 
@@ -80,7 +80,7 @@ bool FourArithmeticProblem::Resolve()
   INFO_LOG() << ops_.size() << " (" << ops_ << ")" << " -> " << tgt_;
 
   if (ops_.size() < 2) {
-    throw std::exception("");
+    throw std::invalid_argument("");
   }
   else if (ops_.size() == 2) {
     for (int t = 0; t < None; ++t) {

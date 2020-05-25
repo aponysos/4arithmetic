@@ -22,7 +22,7 @@ ArithmeticExpression::~ArithmeticExpression()
 Fraction ArithmeticExpression::Evaluate()
 {
   if (lhs_ == nullptr || rhs_ == nullptr)
-    throw std::exception("invalid expression");
+    throw std::logic_error("invalid expression");
 
   Fraction lVal = lhs_->Evaluate();
   Fraction rVal = rhs_->Evaluate();

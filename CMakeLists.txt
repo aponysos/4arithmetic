@@ -26,7 +26,7 @@ ELSE ( CMAKE_BUILD_TYPE MATCHES "Debug" )
 ENDIF ( CMAKE_BUILD_TYPE MATCHES "Debug" )
 
 ADD_LIBRARY ( ${4ARITHMATIC_LIBRARY_NAME}
-  src/4arithmetic.cpp
+#  src/4arithmetic.cpp
   src/Combination.cpp
   src/Expression.cpp
   src/FourArithmeticProblem.cpp

@@ -3,13 +3,11 @@
 // are changed infrequently
 //
 
+#if defined (_MSC_VER)
 #pragma once
-
 #include "targetver.h"
 
 // TODO: reference additional headers your program requires here
-#include "log4cpp\log4cpp.h"
-
 #pragma warning(push)
 // 'std::tr1': warning STL4002: 
 // The non-Standard std::tr1 namespace and TR1-only machinery are deprecated and will be REMOVED. 
@@ -17,6 +15,12 @@
 #pragma warning(disable:4996)
 #include "gtest\gtest.h"
 #pragma warning(pop)
+
+#else // !defined (_MSC_VER)
+#include "gtest\gtest.h"
+#endif // _MSC_VER
+
+#include "log4cpp\log4cpp.h"
 
 #include <functional>
 #include <memory>

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FRACTION_H_INC
+#define FRACTION_H_INC
 
 class Fraction
 {
@@ -62,3 +63,5 @@ Fraction operator-(const Fraction & lhs, const Fraction & rhs);
 Fraction operator*(const Fraction & lhs, const Fraction & rhs);
 Fraction operator/(const Fraction & lhs, const Fraction & rhs);
 std::ostream & operator<<(std::ostream & os, const Fraction & fr);
+
+#endif
